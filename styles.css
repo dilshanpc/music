@@ -1,0 +1,135 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-image: url('https://source.unsplash.com/1600x900/?music'); /* Change this URL to your desired background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative; /* Ensure positioning context for pseudo-elements */
+}
+
+/* Watermark styles */
+body::before {
+  content: "Made By Tharusha Dilshan";
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 14px;
+  color: #ffffff80;
+  z-index: -1; /* Place behind other elements */
+}
+
+body::after {
+  content: "© Dilshan_Tech";
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  z-index: -1; /* Place behind other elements */
+}
+
+.music-player {
+  text-align: center;
+  padding: 20px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5); /* Adding shadow effect */
+  animation: pulseBorder 2s infinite; /* Adding animation for the border */
+}
+
+.upload-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.upload-button:hover {
+  background-color: #2980b9;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.cover-container {
+  width: 300px;
+  height: 300px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+#coverImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: spinCover 5s linear infinite; /* Adding animation for cover image */
+}
+
+.audio-bar {
+  width: 300px;
+  height: 5px;
+  background-color: #3498db;
+  margin-top: 20px;
+  border-radius: 5px;
+  animation: changePlayerColor 3s infinite; /* Adding animation for player bar color */
+}
+
+/* Animation keyframes for pulsating border */
+@keyframes pulseBorder {
+  0% {
+    border-color: #3498db; /* Initial border color */
+  }
+  50% {
+    border-color: #2980b9; /* Midway border color */
+  }
+  100% {
+    border-color: #3498db; /* Final border color */
+  }
+}
+
+/* Animation keyframes for spinning cover */
+@keyframes spinCover {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animation keyframes for player bar color change */
+@keyframes changePlayerColor {
+  0% {
+    background-color: #3498db; /* Initial color */
+  }
+  50% {
+    background-color: #2980b9; /* Midway color */
+  }
+  100% {
+    background-color: #3498db; /* Final color */
+  }
+}
+
+/* Text with blurred background */
+.blur-text::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+  color: white;
+  backdrop-filter: blur(8px); /* Blur effect */
+}

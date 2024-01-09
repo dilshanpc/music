@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><center>
+  <marquee><font color="#ffff80">© Dilshan_Tech</font></marquee>
+  <meta charset="UTF-8">
+  <title>Beautiful Music Player</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="watermark-container">
+  <div class="watermark"></div>
+    <div class="music-player">
+      <input type="file" accept="audio/*" id="audioFileInput">
+      <label for="audioFileInput" class="upload-button">Upload Audio</label>
+      <div class="cover-container">
+        <img id="coverImage" src="" alt="Cover Image">
+      </div>
+      <audio id="audioPlayer" controls class="audio-player"></audio>
+      <div class="audio-bar"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
